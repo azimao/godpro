@@ -1,0 +1,33 @@
+<?php
+	//function for php7
+	function genConfig($jn){
+		return file_put_contents(getcwd().'/god.josn',$jn).'of bytes is written'.PHP_EOL.'god config is created';
+	
+	}
+
+	function loadConfig(){
+	    $file_info = file_get_contents(getcwd().'/god.josn');
+	    return json_decode($file_info);
+	}
+
+	function TC($p){
+	    return new class($p){
+	        function __construct($p){
+                foreach ($p as $k => $v) {
+                    $this -> $k = $v;
+	            }
+            }
+            //当class输入字符串是自动调用
+            function __tostring(){
+                return json_encode($this);
+            }
+        };
+    }
+
+    function TC1($p){
+	    $get_class = new stdClass();
+        foreach ($p as $k=>$v) {
+            $get_class -> $k = $v;
+	    }
+	    return json_encode($get_class);
+    }

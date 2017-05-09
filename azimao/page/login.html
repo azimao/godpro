@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="tool/jquery-3.2.1.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<h1>this is tpl</h1>
+<form action="index.php/login" id="userfrm" method="post">
+  <div>
+   用户名： <input type="text" name="uname" />
+  </div>
+  <div>
+     &nbsp;&nbsp;&nbsp;&nbsp;密码： <input type="text" name="upwd" />
+  </div>
+    <button type="submit">登录</button>
+    <button type="button" id="clbtn">登录jq</button>
+</form>
+</body>
+<script>
+   $('#clbtn').click(function () {
+       var jsonResult = $("#userfrm").serializeArray();
+       var jsonArr = {};
+       $.each(jsonResult,function () {
+          jsonArr[this.name] = this.value;
+       })
+
+       $.ajax({
+           type: "POST",
+           contentType: "application/json",
+           url: "/index.php/login",
+           data: JSON.stringify(jsonArr),
+           dataType: "json",
+           success: function (result) {
+              console.log(result);
+           },
+          /* error: function (response.error) {
+               alert(error);
+           }*/
+
+       });
+   })
+
+</script>
+</html>

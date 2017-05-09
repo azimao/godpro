@@ -1,0 +1,1 @@
+echo 320199 | sudo -S /bin/bash -c 'cp god* /usr/local/bin'

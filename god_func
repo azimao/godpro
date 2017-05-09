@@ -1,0 +1,5 @@
+<?php
+	function genConfig(){
+		return file_put_contents(getcwd().'/god.josn','{}').'of bytes is written'.PHP_EOL.'god config is created';
+	
+	}

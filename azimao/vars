@@ -1,0 +1,6 @@
+<?php 
+extract(array (
+  'name' => 'azimao',
+  'age' => '23',
+  'sex' => 'man',
+));
