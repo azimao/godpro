@@ -6,7 +6,7 @@ class orm{
         'from'=>'from ',
     ];
     function select(){
-                    //获取传进来的参数
+        //获取传进来的参数
         $fields = func_get_args();
         foreach ($fields as $field){
             $this->_add(__FUNCTION__,$field);
